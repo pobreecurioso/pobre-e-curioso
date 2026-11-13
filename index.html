@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff5d8">
+  <meta name="description" content="Entre no universo do Bob Mil Lentes! Veja as figurinhas, baixe grátis e fique de olho nos próximos jogos do Pobre e Curioso.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Bob Mil Lentes — Figurinhas oficiais">
+  <meta property="og:description" content="Figurinhas grátis, jogos e novas aventuras do Bob Mil Lentes estão aqui!">
+  <meta property="og:image" content="Figurinhas-Pobreecurioso/bravo.jpg">
+  <title>Figurinhas do Bob Mil Lentes | Pobre e Curioso</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fff7df;
+      --ink: #202247;
+      --muted: #5c627a;
+      --green: #6138d7;
+      --green-dark: #4724b2;
+      --lime: #ffdc52;
+      --line: #ebdfbd;
+      --card: #fffefa;
+      --orange: #ff705f;
+      --pink: #ff79bb;
+      --sky: #82ddf4;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 8% 17%, #ffd1e65c, transparent 26rem),
+        radial-gradient(ellipse at 95% 47%, #a9eaff55, transparent 24rem),
+        var(--paper);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      border-bottom: 2px dashed #e9dcb6;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      font-size: .95rem;
+      font-weight: 850;
+      letter-spacing: -.03em;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 14px;
+      background: var(--lime);
+      font-size: 1.25rem;
+      transform: rotate(-7deg);
+    }
+
+    .top-nav { display: flex; align-items: center; gap: 20px; }
+
+    .top-link {
+      color: var(--green);
+      font-size: .9rem;
+      font-weight: 750;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 52px;
+      padding-block: 66px 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 17px;
+      padding: 7px 12px;
+      border: 1px solid #f4d36a;
+      border-radius: 999px;
+      background: #fff0ae;
+      color: var(--green);
+      font-size: .78rem;
+      font-weight: 850;
+      letter-spacing: .06em;
+    }
+
+    .eyebrow::before {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--orange);
+      content: "";
+    }
+
+    h1, h2, p { margin-top: 0; }
+
+    h1 {
+      max-width: 610px;
+      margin-bottom: 18px;
+      font-size: clamp(2.9rem, 6.8vw, 5.55rem);
+      font-weight: 900;
+      letter-spacing: -.075em;
+      line-height: .96;
+    }
+
+    h1 span { color: var(--green); }
+
+    .hero-copy {
+      max-width: 495px;
+      margin-bottom: 27px;
+      color: #505673;
+      font-size: 1.1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 21px;
+      border: 0;
+      border: 2px solid var(--ink);
+      border-radius: 18px;
+      background: var(--lime);
+      color: var(--ink);
+      font: inherit;
+      font-size: .96rem;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 5px 0 var(--ink);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      background: #ffe77e;
+      box-shadow: 0 8px 0 var(--ink);
+    }
+
+    .button:focus-visible, .top-link:focus-visible, .brand:focus-visible, .sticker:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 4px;
+    }
+
+    .button .arrow { font-size: 1.15rem; }
+
+    .hero-note {
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .hero-art {
+      position: relative;
+      min-height: 410px;
+      isolation: isolate;
+      animation: bob-float 4s ease-in-out infinite;
+    }
+
+    .hero-blob {
+      position: absolute;
+      z-index: -1;
+      inset: 20px 10px 0 22px;
+      border: 4px solid var(--ink);
+      border-radius: 42% 58% 53% 47% / 43% 42% 58% 57%;
+      background: linear-gradient(140deg, var(--sky), #b5f2da 53%, var(--lime));
+      transform: rotate(-7deg);
+    }
+
+    .hero-main {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      width: min(76%, 310px);
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: 8px solid var(--card);
+      border-radius: 38px;
+      background: #fff;
+      box-shadow: 0 8px 0 var(--ink), 0 22px 55px #20224726;
+      transform: translateX(-50%) rotate(4deg);
+    }
+
+    .hero-main img, .sticker img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .float-card {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 14px 9px 9px;
+      border: 2px solid var(--ink);
+      border-radius: 18px;
+      background: var(--card);
+      box-shadow: 0 4px 0 var(--ink), 0 12px 30px #20224720;
+      font-size: .84rem;
+      font-weight: 850;
+    }
+
+    .float-card img {
+      width: 44px;
+      height: 44px;
+      border: 2px solid var(--ink);
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .float-card.one { top: 30px; right: 0; transform: rotate(7deg); }
+    .float-card.two { bottom: 47px; left: 0; transform: rotate(-7deg); }
+
+    .hero-stamp {
+      position: absolute;
+      right: 4px;
+      bottom: 20px;
+      display: grid;
+      width: 80px;
+      height: 80px;
+      place-items: center;
+      border: 3px dashed var(--ink);
+      border-radius: 50%;
+      background: var(--pink);
+      color: var(--green);
+      font-size: .7rem;
+      font-weight: 900;
+      line-height: 1.2;
+      text-align: center;
+      transform: rotate(12deg);
+    }
+
+    .strip {
+      border-block: 2px solid var(--ink);
+      background: var(--orange);
+      color: var(--ink);
+    }
+
+    .strip-inner {
+      display: flex;
+      min-height: 84px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .strip p { margin: 0; font-size: .95rem; }
+    .strip strong { color: var(--ink); }
+    .strip a { font-size: .87rem; font-weight: 800; text-underline-offset: 4px; }
+
+    .universe { padding-block: 66px 30px; }
+
+    .universe-heading { margin-bottom: 22px; }
+
+    .universe-heading h2 {
+      margin-bottom: 8px;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      font-weight: 900;
+      letter-spacing: -.06em;
+      line-height: 1;
+    }
+
+    .universe-heading p:last-child { margin-bottom: 0; color: var(--muted); }
+
+    .world-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .world-card {
+      position: relative;
+      display: flex;
+      min-height: 190px;
+      align-items: center;
+      gap: 20px;
+      overflow: hidden;
+      padding: 23px;
+      border: 2px solid var(--ink);
+      border-radius: 25px;
+      box-shadow: 0 6px 0 var(--ink);
+      color: var(--ink);
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    a.world-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 9px 0 var(--ink);
+    }
+
+    .world-card.stickers-world { background: linear-gradient(125deg, #a9eff6, #dcf8e6 65%, #fff3a8); }
+    .world-card.games-world { background: linear-gradient(125deg, #ffadd2, #ffc4a4 58%, #ffe67e); }
+
+    .world-art {
+      display: grid;
+      width: 126px;
+      height: 126px;
+      flex: 0 0 126px;
+      place-items: center;
+      overflow: hidden;
+      border: 3px solid var(--ink);
+      border-radius: 28px;
+      background: white;
+      box-shadow: 0 4px 0 var(--ink);
+      transform: rotate(-5deg);
+    }
+
+    .world-art img { width: 100%; height: 100%; object-fit: cover; }
+    .games-world .world-art { background: #fff7d7; font-size: 4.2rem; transform: rotate(5deg); }
+
+    .world-copy { position: relative; z-index: 1; }
+
+    .world-label {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 9px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: var(--lime);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .games-world .world-label { background: #fff; }
+    .world-card h3 { margin: 0 0 5px; font-size: 1.45rem; font-weight: 900; letter-spacing: -.04em; }
+    .world-card p { margin: 0; color: #3e4260; font-size: .9rem; }
+
+    .collection { padding-block: 54px 84px; }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 26px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 5px;
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -.06em;
+      line-height: 1;
+    }
+
+    .section-heading p {
+      max-width: 490px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .count {
+      flex: 0 0 auto;
+      padding: 8px 13px;
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      background: var(--lime);
+      color: var(--green);
+      font-size: .82rem;
+      font-weight: 850;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .sticker {
+      overflow: hidden;
+      border: 2px solid var(--ink);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 4px 0 var(--ink);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .sticker:hover {
+      transform: translateY(-4px) rotate(-1deg);
+      box-shadow: 0 8px 0 var(--ink);
+    }
+
+    .sticker img {
+      aspect-ratio: 1;
+      background: white;
+      object-fit: contain;
+    }
+
+    .sticker figcaption {
+      padding: 11px 13px 13px;
+      font-size: .88rem;
+      font-weight: 800;
+    }
+
+    .sticker:nth-child(4n + 1) figcaption { background: #d8f6f7; }
+    .sticker:nth-child(4n + 2) figcaption { background: #ffe0ee; }
+    .sticker:nth-child(4n + 3) figcaption { background: #fff0b0; }
+    .sticker:nth-child(4n) figcaption { background: #e4ddff; }
+
+    figure { margin: 0; }
+
+    .download {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 35px;
+      overflow: hidden;
+      margin-bottom: 70px;
+      padding: 38px 42px;
+      border: 2px solid var(--ink);
+      border-radius: 28px;
+      background: linear-gradient(115deg, #6138d7, #8b50ed 58%, #bd56c3);
+      box-shadow: 0 7px 0 var(--ink);
+      color: white;
+    }
+
+    .download::after {
+      position: absolute;
+      top: -95px;
+      right: 150px;
+      width: 245px;
+      height: 245px;
+      border: 1px solid #ffffff20;
+      border-radius: 50%;
+      box-shadow: 0 0 0 34px #ffffff0b, 0 0 0 68px #ffffff08;
+      content: "";
+      pointer-events: none;
+    }
+
+    .download h2 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 8px;
+      font-size: clamp(1.7rem, 4vw, 2.45rem);
+      font-weight: 900;
+      letter-spacing: -.055em;
+      line-height: 1.05;
+    }
+
+    .download p {
+      position: relative;
+      z-index: 1;
+      max-width: 560px;
+      margin-bottom: 0;
+      color: #f1e9ff;
+    }
+
+    .download .button {
+      position: relative;
+      z-index: 1;
+      border-color: var(--ink);
+      background: var(--lime);
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .download .button:hover { background: #ffe98d; }
+
+    .howto {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding-bottom: 75px;
+    }
+
+    .howto h2 {
+      margin-bottom: 10px;
+      font-size: 1.55rem;
+      font-weight: 900;
+      letter-spacing: -.045em;
+    }
+
+    .howto p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .howto .fine-print {
+      padding: 18px 20px;
+      border: 2px dashed #dc9dbd;
+      border-radius: 20px;
+      background: #ffe9f3;
+    }
+
+    footer {
+      border-top: 2px dashed #e9dcb6;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .footer-inner p { margin: 0; }
+    .footer-inner a { color: var(--green); font-weight: 800; text-underline-offset: 3px; }
+
+    @keyframes bob-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr  .8fr; gap: 20px; padding-block: 54px 60px; }
+      .hero-art { min-height: 340px; animation: none; }
+      .hero-main { width: min(80%, 260px); }
+      .float-card { gap: 7px; padding: 7px 10px 7px 7px; font-size: .75rem; }
+      .float-card img { width: 36px; height: 36px; }
+      .hero-stamp { width: 66px; height: 66px; right: -3px; font-size: .62rem; }
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; }
+    }
+
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 30px, 430px); }
+      .topbar { min-height: 66px; }
+      .brand { font-size: .86rem; }
+      .top-link { font-size: .82rem; }
+      .hero { grid-template-columns: 1fr; gap: 6px; padding-block: 46px 34px; }
+      h1 { font-size: clamp(3.1rem, 15vw, 4.45rem); }
+      .hero-copy { font-size: 1rem; }
+      .hero-art { width: min(100%, 360px); min-height: 330px; margin: 0 auto; }
+      .top-nav { gap: 12px; }
+      .top-link { font-size: .76rem; }
+      .universe { padding-top: 48px; }
+      .world-grid { grid-template-columns: 1fr; gap: 15px; }
+      .world-card { min-height: 160px; gap: 15px; padding: 17px; border-radius: 22px; }
+      .world-art { width: 104px; height: 104px; flex-basis: 104px; border-radius: 23px; }
+      .games-world .world-art { font-size: 3.5rem; }
+      .world-card h3 { font-size: 1.25rem; }
+      .hero-main { width: min(72%, 260px); }
+      .hero-blob { inset: 18px 18px 0; }
+      .float-card.one { right: 1px; }
+      .float-card.two { left: 0; bottom: 36px; }
+      .hero-stamp { right: 0; bottom: 3px; }
+      .strip-inner { min-height: 75px; }
+      .strip p { max-width: 240px; font-size: .83rem; }
+      .strip a { font-size: .78rem; white-space: nowrap; }
+      .collection { padding-block: 54px 58px; }
+      .section-heading { align-items: start; flex-direction: column; gap: 12px; }
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+      .sticker { border-radius: 14px; }
+      .sticker figcaption { padding: 9px 10px 11px; font-size: .82rem; }
+      .download { grid-template-columns: 1fr; gap: 20px; margin-bottom: 50px; padding: 28px 23px; }
+      .download .button { justify-self: start; }
+      .download::after { right: -110px; }
+      .howto { grid-template-columns: 1fr; gap: 20px; padding-bottom: 52px; }
+      .footer-inner { min-height: 78px; align-items: start; flex-direction: column; justify-content: center; gap: 5px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap topbar">
+    <a class="brand" href="#inicio" aria-label="Pobre e Curioso - início">
+      <span class="brand-mark" aria-hidden="true">🔎</span>
+      <span>POBRE E CURIOSO</span>
+    </a>
+    <nav class="top-nav" aria-label="Navegação principal">
+      <a class="top-link" href="#universo">Universo</a>
+      <a class="top-link" href="https://www.instagram.com/pobreecurioso/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="wrap hero" id="inicio">
+      <div>
+        <p class="eyebrow">✨ Ei, curioso! Chegou novidade!</p>
+        <h1>O Bob chegou pra <span>agitar tudo!</span></h1>
+        <p class="hero-copy">Figurinhas, jogos e um montão de aventuras estão pintando por aqui. Comece levando as reações do Bob Mil Lentes para as suas conversas!</p>
+        <div class="hero-actions">
+          <a class="button" href="Figurinhas-Pobreecurioso.zip" download>
+            <span aria-hidden="true">🎉</span> Quero minhas figurinhas!
+          </a>
+        </div>
+        <p class="hero-note">17 reações do Bob • grátis • diversão liberada!</p>
+      </div>
+
+      <div class="hero-art" aria-label="Prévia das figurinhas do Bob">
+        <div class="hero-blob"></div>
+        <div class="hero-main"><img src="Figurinhas-Pobreecurioso/bravo.jpg" alt="Bob Mil Lentes fazendo cara de bravo"></div>
+        <div class="float-card one">
+          <img src="Figurinhas-Pobreecurioso/to%20vendo.jpg" alt="">
+          Tô vendo...
+        </div>
+        <div class="float-card two">
+          <img src="Figurinhas-Pobreecurioso/joinha.jpg" alt="">
+          Fechou!
+        </div>
+        <div class="hero-stamp">17<br>JEITOS<br>DO BOB!</div>
+      </div>
+    </section>
+
+    <section class="strip">
+      <div class="wrap strip-inner">
+        <p><strong>Alerta de diversão!</strong> O universo do Bob está só começando.</p>
+        <a href="https://www.instagram.com/pobreecurioso/" target="_blank" rel="noopener noreferrer">Seguir no Instagram ↗</a>
+      </div>
+    </section>
+
+    <section class="wrap universe" id="universo" aria-labelledby="universe-title">
+      <div class="universe-heading">
+        <p class="eyebrow">🌈 Entre nessa aventura</p>
+        <h2 id="universe-title">O mundo do Bob tá crescendo!</h2>
+        <p>Tem novidade chegando por aqui. Escolha por onde começar:</p>
+      </div>
+      <div class="world-grid">
+        <a class="world-card stickers-world" href="#colecao">
+          <span class="world-art"><img src="Figurinhas-Pobreecurioso/joinha.jpg" alt=""></span>
+          <span class="world-copy">
+            <span class="world-label">Já disponível</span>
+            <h3>Figurinhas do Bob</h3>
+            <p>17 reações pra baixar e compartilhar!</p>
+          </span>
+        </a>
+        <article class="world-card games-world">
+          <span class="world-art" aria-hidden="true">🎮</span>
+          <span class="world-copy">
+            <span class="world-label">Em breve</span>
+            <h3>Jogos e aventuras</h3>
+            <p>Novas brincadeiras do Bob estão a caminho!</p>
+          </span>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap collection" id="colecao">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">😆 Escolha sua reação</p>
+          <h2>Qual é a sua cara de hoje?</h2>
+          <p>Tem Bob pra todo tipo de momento. Espia a coleção e escolhe seus favoritos!</p>
+        </div>
+        <span class="count">17 figurinhas</span>
+      </div>
+
+      <div class="grid">
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/bravo.jpg" alt="Bob com expressão brava" loading="lazy"><figcaption>Bravo</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/cansa%C3%A7o.jpg" alt="Bob demonstrando cansaço" loading="lazy"><figcaption>Cansaço</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/chatooo.jpg" alt="Bob achando algo chato" loading="lazy"><figcaption>Chatooo</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/choro.jpg" alt="Bob chorando" loading="lazy"><figcaption>Choro</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/desconfian%C3%A7a.jpg" alt="Bob desconfiado" loading="lazy"><figcaption>Desconfiança</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/dormindo.jpg" alt="Bob dormindo" loading="lazy"><figcaption>Dormindo</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/game.jpg" alt="Bob no clima de jogo" loading="lazy"><figcaption>Partiu game</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/joinha.jpg" alt="Bob fazendo sinal de positivo" loading="lazy"><figcaption>Joinha</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/juraa.jpg" alt="Bob com expressão de surpresa" loading="lazy"><figcaption>Jura?</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/naoligo.jpg" alt="Bob dizendo que não liga" loading="lazy"><figcaption>Não ligo</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/natalchurras.jpg" alt="Bob no clima de Natal e churrasco" loading="lazy"><figcaption>Natal &amp; churras</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/noelbob.jpg" alt="Bob vestido de Noel" loading="lazy"><figcaption>Noel Bob</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/pisca.jpg" alt="Bob piscando" loading="lazy"><figcaption>Pisca</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/porfavozinho.jpg" alt="Bob fazendo cara de por favor" loading="lazy"><figcaption>Por favozinho</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/pregui%C3%A7a.jpg" alt="Bob com preguiça" loading="lazy"><figcaption>Preguiça</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/to%20vendo.jpg" alt="Bob observando" loading="lazy"><figcaption>Tô vendo</figcaption></figure>
+        <figure class="sticker"><img src="Figurinhas-Pobreecurioso/toma.jpg" alt="Bob mandando um toma" loading="lazy"><figcaption>Toma!</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="wrap download" id="baixar">
+      <div>
+        <h2>Partiu espalhar reação?</h2>
+        <p>Baixe o pacote completo com as 17 imagens do Bob. É grátis: só clicar e guardar!</p>
+      </div>
+      <a class="button" href="Figurinhas-Pobreecurioso.zip" download>
+        Baixar pacote ZIP <span class="arrow" aria-hidden="true">↓</span>
+      </a>
+    </section>
+
+    <section class="wrap howto">
+      <div>
+        <h2>Como pegar as figurinhas?</h2>
+        <p>Toque em “Baixar pacote ZIP”. Depois, abra ou extraia o arquivo no seu celular ou computador para acessar as imagens.</p>
+      </div>
+      <p class="fine-print"><strong>Uma dica:</strong> este download contém imagens JPG. Para transformá-las em figurinhas dentro do WhatsApp, use a ferramenta do proprio whatsapp ou app externo.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p>Feito com curiosidade por <strong>Pobre e Curioso</strong> 🔎</p>
+      <a href="https://www.instagram.com/pobreecurioso/" target="_blank" rel="noopener noreferrer">@pobreecurioso ↗</a>
+    </div>
+  </footer>
+</body>
+</html>
