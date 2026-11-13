@@ -192,7 +192,7 @@
       flex: 0 0 auto;
     }
 
-    .button:focus-visible, .top-link:focus-visible, .brand:focus-visible, .sticker:focus-visible {
+    .button:focus-visible, .top-link:focus-visible, .brand:focus-visible, .sticker-save:focus-visible, .sticker-share:focus-visible {
       outline: 3px solid var(--orange);
       outline-offset: 4px;
     }
@@ -456,23 +456,26 @@
 
     .sticker figcaption {
       display: flex;
-      min-height: 56px;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
+      align-items: stretch;
       gap: 7px;
-      padding: 11px 13px 13px;
+      padding: 9px 11px 11px;
       font-size: .88rem;
       font-weight: 800;
+    }
+
+    .sticker-actions {
+      display: flex;
+      gap: 6px;
     }
 
     .sticker-save {
       display: inline-flex;
       min-height: 36px;
-      flex: 0 0 auto;
+      flex: 1 1 0;
       align-items: center;
       justify-content: center;
-      gap: 4px;
-      padding: 0 9px;
+      padding: 0 7px;
       border: 1px solid var(--ink);
       border-radius: 999px;
       background: #fffefa;
@@ -480,9 +483,44 @@
       font-size: .72rem;
       font-weight: 850;
       text-decoration: none;
+      white-space: nowrap;
     }
 
     .sticker-save:hover { background: var(--lime); }
+
+    .sticker-share {
+      display: inline-flex;
+      min-height: 36px;
+      flex: 1 1 0;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 0 7px;
+      border: 1px solid #14532d;
+      border-radius: 999px;
+      background: #25d366;
+      color: #123b25;
+      font: inherit;
+      font-size: .72rem;
+      font-weight: 850;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .sticker-share:hover { background: #35df75; }
+    .sticker-share:disabled { cursor: wait; opacity: .65; }
+
+    .share-status {
+      margin: 18px 0 0;
+      padding: 12px 15px;
+      border-radius: 14px;
+      background: #e4ddff;
+      color: var(--ink);
+      font-size: .9rem;
+      font-weight: 750;
+    }
+
+    .share-status:empty { display: none; }
 
     .sticker:nth-child(4n + 1) figcaption { background: #d8f6f7; }
     .sticker:nth-child(4n + 2) figcaption { background: #ffe0ee; }
@@ -651,8 +689,9 @@
       .section-heading { align-items: start; flex-direction: column; gap: 12px; }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
       .sticker { border-radius: 14px; }
-      .sticker figcaption { min-height: 52px; padding: 8px; font-size: .78rem; }
-      .sticker-save { min-height: 34px; padding-inline: 7px; font-size: .69rem; }
+      .sticker figcaption { gap: 6px; padding: 8px; font-size: .78rem; }
+      .sticker-actions { gap: 5px; }
+      .sticker-save, .sticker-share { min-height: 36px; padding-inline: 5px; font-size: .67rem; }
       .download { grid-template-columns: 1fr; gap: 20px; margin-bottom: 50px; padding: 28px 23px; }
       .download .button { justify-self: start; }
       .download::after { right: -110px; }
@@ -750,30 +789,31 @@
         <div>
           <p class="eyebrow">😆 Escolha sua reação</p>
           <h2>Qual é a sua cara de hoje?</h2>
-          <p>Tem Bob pra todo tipo de momento. Toque em “Salvar” para baixar as imagens que quiser!</p>
+          <p>Escolha uma reação: salve a imagem ou tente enviá-la direto pelo menu de compartilhamento do celular.</p>
         </div>
         <span class="count">17 figurinhas</span>
       </div>
 
       <div class="grid">
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/bravo.jpg" download aria-label="Salvar Bravo"><img src="Figurinhas-Pobreecurioso/bravo.jpg" alt="Bob com expressão brava" loading="lazy"></a><figcaption><span>Bravo</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/bravo.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/cansa%C3%A7o.jpg" download aria-label="Salvar Cansaço"><img src="Figurinhas-Pobreecurioso/cansa%C3%A7o.jpg" alt="Bob demonstrando cansaço" loading="lazy"></a><figcaption><span>Cansaço</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/cansa%C3%A7o.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/chatooo.jpg" download aria-label="Salvar Chatooo"><img src="Figurinhas-Pobreecurioso/chatooo.jpg" alt="Bob achando algo chato" loading="lazy"></a><figcaption><span>Chatooo</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/chatooo.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/choro.jpg" download aria-label="Salvar Choro"><img src="Figurinhas-Pobreecurioso/choro.jpg" alt="Bob chorando" loading="lazy"></a><figcaption><span>Choro</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/choro.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/desconfian%C3%A7a.jpg" download aria-label="Salvar Desconfiança"><img src="Figurinhas-Pobreecurioso/desconfian%C3%A7a.jpg" alt="Bob desconfiado" loading="lazy"></a><figcaption><span>Desconfiança</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/desconfian%C3%A7a.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/dormindo.jpg" download aria-label="Salvar Dormindo"><img src="Figurinhas-Pobreecurioso/dormindo.jpg" alt="Bob dormindo" loading="lazy"></a><figcaption><span>Dormindo</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/dormindo.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/game.jpg" download aria-label="Salvar Partiu game"><img src="Figurinhas-Pobreecurioso/game.jpg" alt="Bob no clima de jogo" loading="lazy"></a><figcaption><span>Partiu game</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/game.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/joinha.jpg" download aria-label="Salvar Joinha"><img src="Figurinhas-Pobreecurioso/joinha.jpg" alt="Bob fazendo sinal de positivo" loading="lazy"></a><figcaption><span>Joinha</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/joinha.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/juraa.jpg" download aria-label="Salvar Jura"><img src="Figurinhas-Pobreecurioso/juraa.jpg" alt="Bob com expressão de surpresa" loading="lazy"></a><figcaption><span>Jura?</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/juraa.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/naoligo.jpg" download aria-label="Salvar Não ligo"><img src="Figurinhas-Pobreecurioso/naoligo.jpg" alt="Bob dizendo que não liga" loading="lazy"></a><figcaption><span>Não ligo</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/naoligo.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/natalchurras.jpg" download aria-label="Salvar Natal e churras"><img src="Figurinhas-Pobreecurioso/natalchurras.jpg" alt="Bob no clima de Natal e churrasco" loading="lazy"></a><figcaption><span>Natal &amp; churras</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/natalchurras.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/noelbob.jpg" download aria-label="Salvar Noel Bob"><img src="Figurinhas-Pobreecurioso/noelbob.jpg" alt="Bob vestido de Noel" loading="lazy"></a><figcaption><span>Noel Bob</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/noelbob.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/pisca.jpg" download aria-label="Salvar Pisca"><img src="Figurinhas-Pobreecurioso/pisca.jpg" alt="Bob piscando" loading="lazy"></a><figcaption><span>Pisca</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/pisca.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/porfavozinho.jpg" download aria-label="Salvar Por favozinho"><img src="Figurinhas-Pobreecurioso/porfavozinho.jpg" alt="Bob fazendo cara de por favor" loading="lazy"></a><figcaption><span>Por favozinho</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/porfavozinho.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/pregui%C3%A7a.jpg" download aria-label="Salvar Preguiça"><img src="Figurinhas-Pobreecurioso/pregui%C3%A7a.jpg" alt="Bob com preguiça" loading="lazy"></a><figcaption><span>Preguiça</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/pregui%C3%A7a.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/to%20vendo.jpg" download aria-label="Salvar Tô vendo"><img src="Figurinhas-Pobreecurioso/to%20vendo.jpg" alt="Bob observando" loading="lazy"></a><figcaption><span>Tô vendo</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/to%20vendo.jpg" download>Salvar ↓</a></figcaption></figure>
-        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/toma.jpg" download aria-label="Salvar Toma"><img src="Figurinhas-Pobreecurioso/toma.jpg" alt="Bob mandando um toma" loading="lazy"></a><figcaption><span>Toma!</span><a class="sticker-save" href="Figurinhas-Pobreecurioso/toma.jpg" download>Salvar ↓</a></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/bravo.jpg" download aria-label="Salvar Bravo"><img src="Figurinhas-Pobreecurioso/bravo.jpg" alt="Bob com expressão brava" loading="lazy"></a><figcaption><span>Bravo</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/bravo.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Bravo">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/cansa%C3%A7o.jpg" download aria-label="Salvar Cansaço"><img src="Figurinhas-Pobreecurioso/cansa%C3%A7o.jpg" alt="Bob demonstrando cansaço" loading="lazy"></a><figcaption><span>Cansaço</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/cansa%C3%A7o.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Cansaço">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/chatooo.jpg" download aria-label="Salvar Chatooo"><img src="Figurinhas-Pobreecurioso/chatooo.jpg" alt="Bob achando algo chato" loading="lazy"></a><figcaption><span>Chatooo</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/chatooo.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Chatooo">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/choro.jpg" download aria-label="Salvar Choro"><img src="Figurinhas-Pobreecurioso/choro.jpg" alt="Bob chorando" loading="lazy"></a><figcaption><span>Choro</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/choro.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Choro">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/desconfian%C3%A7a.jpg" download aria-label="Salvar Desconfiança"><img src="Figurinhas-Pobreecurioso/desconfian%C3%A7a.jpg" alt="Bob desconfiado" loading="lazy"></a><figcaption><span>Desconfiança</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/desconfian%C3%A7a.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Desconfiança">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/dormindo.jpg" download aria-label="Salvar Dormindo"><img src="Figurinhas-Pobreecurioso/dormindo.jpg" alt="Bob dormindo" loading="lazy"></a><figcaption><span>Dormindo</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/dormindo.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Dormindo">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/game.jpg" download aria-label="Salvar Partiu game"><img src="Figurinhas-Pobreecurioso/game.jpg" alt="Bob no clima de jogo" loading="lazy"></a><figcaption><span>Partiu game</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/game.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Partiu game">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/joinha.jpg" download aria-label="Salvar Joinha"><img src="Figurinhas-Pobreecurioso/joinha.jpg" alt="Bob fazendo sinal de positivo" loading="lazy"></a><figcaption><span>Joinha</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/joinha.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Joinha">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/juraa.jpg" download aria-label="Salvar Jura"><img src="Figurinhas-Pobreecurioso/juraa.jpg" alt="Bob com expressão de surpresa" loading="lazy"></a><figcaption><span>Jura?</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/juraa.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Jura">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/naoligo.jpg" download aria-label="Salvar Não ligo"><img src="Figurinhas-Pobreecurioso/naoligo.jpg" alt="Bob dizendo que não liga" loading="lazy"></a><figcaption><span>Não ligo</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/naoligo.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Não ligo">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/natalchurras.jpg" download aria-label="Salvar Natal e churras"><img src="Figurinhas-Pobreecurioso/natalchurras.jpg" alt="Bob no clima de Natal e churrasco" loading="lazy"></a><figcaption><span>Natal &amp; churras</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/natalchurras.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Natal e churras">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/noelbob.jpg" download aria-label="Salvar Noel Bob"><img src="Figurinhas-Pobreecurioso/noelbob.jpg" alt="Bob vestido de Noel" loading="lazy"></a><figcaption><span>Noel Bob</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/noelbob.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Noel Bob">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/pisca.jpg" download aria-label="Salvar Pisca"><img src="Figurinhas-Pobreecurioso/pisca.jpg" alt="Bob piscando" loading="lazy"></a><figcaption><span>Pisca</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/pisca.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Pisca">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/porfavozinho.jpg" download aria-label="Salvar Por favozinho"><img src="Figurinhas-Pobreecurioso/porfavozinho.jpg" alt="Bob fazendo cara de por favor" loading="lazy"></a><figcaption><span>Por favozinho</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/porfavozinho.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Por favozinho">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/pregui%C3%A7a.jpg" download aria-label="Salvar Preguiça"><img src="Figurinhas-Pobreecurioso/pregui%C3%A7a.jpg" alt="Bob com preguiça" loading="lazy"></a><figcaption><span>Preguiça</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/pregui%C3%A7a.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Preguiça">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/to%20vendo.jpg" download aria-label="Salvar Tô vendo"><img src="Figurinhas-Pobreecurioso/to%20vendo.jpg" alt="Bob observando" loading="lazy"></a><figcaption><span>Tô vendo</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/to%20vendo.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Tô vendo">Enviar ↗</button></div></figcaption></figure>
+        <figure class="sticker"><a class="sticker-image" href="Figurinhas-Pobreecurioso/toma.jpg" download aria-label="Salvar Toma"><img src="Figurinhas-Pobreecurioso/toma.jpg" alt="Bob mandando um toma" loading="lazy"></a><figcaption><span>Toma!</span><div class="sticker-actions"><a class="sticker-save" href="Figurinhas-Pobreecurioso/toma.jpg" download>Salvar ↓</a><button class="sticker-share" type="button" aria-label="Enviar Toma">Enviar ↗</button></div></figcaption></figure>
       </div>
+      <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
     </section>
 
     <section class="wrap download" id="baixar">
@@ -805,5 +845,53 @@
       <a href="https://www.instagram.com/pobreecurioso/" target="_blank" rel="noopener noreferrer">@pobreecurioso ↗</a>
     </div>
   </footer>
+  <script>
+    const shareStatus = document.querySelector('#share-status');
+
+    document.querySelectorAll('.sticker-share').forEach((button) => {
+      button.addEventListener('click', async () => {
+        const card = button.closest('.sticker');
+        const imageLink = card.querySelector('.sticker-image');
+        const stickerName = card.querySelector('figcaption > span').textContent.trim();
+        button.disabled = true;
+        shareStatus.textContent = '';
+
+        try {
+          const response = await fetch(imageLink.href);
+          if (!response.ok) {
+            throw new Error(`Image request failed with status ${response.status}`);
+          }
+
+          const image = await response.blob();
+          const fileName = decodeURIComponent(new URL(imageLink.href).pathname.split('/').pop());
+          const file = new File([image], fileName, { type: image.type || 'image/jpeg' });
+          const files = [file];
+
+          if (typeof navigator.share !== 'function'
+            || typeof navigator.canShare !== 'function'
+            || !navigator.canShare({ files })) {
+            shareStatus.textContent = 'Este navegador não consegue enviar arquivos pelo menu. Use “Salvar” para baixar a imagem.';
+            return;
+          }
+
+          await navigator.share({
+            files,
+            title: `Figurinha ${stickerName} — Bob Mil Lentes`,
+            text: 'Olha essa figurinha do Bob Mil Lentes!'
+          });
+          shareStatus.textContent = `Imagem compartilhada com o app escolhido. Selecione WhatsApp para enviar ${stickerName}.`;
+        } catch (error) {
+          if (error instanceof DOMException && error.name === 'AbortError') {
+            shareStatus.textContent = 'Compartilhamento cancelado.';
+          } else {
+            console.error('Falha ao compartilhar a imagem.', error);
+            shareStatus.textContent = 'Não foi possível compartilhar agora. Use “Salvar” para baixar a imagem.';
+          }
+        } finally {
+          button.disabled = false;
+        }
+      });
+    });
+  </script>
 </body>
 </html>
