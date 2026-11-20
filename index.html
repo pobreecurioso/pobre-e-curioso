@@ -644,6 +644,7 @@
 
     .footer-inner p { margin: 0; }
     .footer-inner a { color: var(--green); font-weight: 800; text-underline-offset: 3px; }
+    .footer-links { display: flex; gap: 16px; }
 
     @keyframes bob-float {
       0%, 100% { transform: translateY(0); }
@@ -842,7 +843,10 @@
   <footer>
     <div class="wrap footer-inner">
       <p>Feito com curiosidade por <strong>Pobre e Curioso</strong> 🔎</p>
-      <a href="https://www.instagram.com/pobreecurioso/" target="_blank" rel="noopener noreferrer">@pobreecurioso ↗</a>
+      <nav class="footer-links" aria-label="Redes sociais">
+        <a href="https://www.instagram.com/pobreecurioso/" target="_blank" rel="noopener noreferrer">@pobreecurioso ↗</a>
+        <a href="https://open.spotify.com/intl-pt/artist/7ELJ4Sg4OInWINgLZArv73?si=Cuf_uKvmQ12y9DKJZljJGQ" target="_blank" rel="noopener noreferrer">Spotify ↗</a>
+      </nav>
     </div>
   </footer>
   <script>
